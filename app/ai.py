@@ -1,6 +1,6 @@
 from ollama import chat
 
-
+# This is AI model that explains HL7 v2 validation errors in simple English and provides suggested fixes.    
 def explain_error(error):
 
     prompt = f"""
