@@ -1,4 +1,4 @@
-# 🏥 HL7 Validation Assistant
+# 🏥 Madhusudan's HL7 Validation Assistant
 
 An AI-powered HL7 v2.x message validation application built with **FastAPI**, **Streamlit**, and **Ollama**.
 
