@@ -70,7 +70,7 @@ hl7-validation-assistant/
 ### Clone the repository
 
 ```bash
-git clone https://github.com/<your-github-username>/hl7-validation-assistant.git
+git clone https://github.com/virtualczar80/hl7-validation-assistant.git
 cd hl7-validation-assistant
 ```
 
@@ -208,7 +208,7 @@ Coming Soon
 
 **Madhusudan Vedayas**
 
-GitHub: https://github.com/<virtualczar80/hl7-validation-assistant>
+GitHub: https://github.com/virtualczar80
 
 ---
 
