@@ -106,15 +106,16 @@ Pull the required model (example):
 
 ```bash
 ollama pull llama3.2
+ollama run llama3.2:3b
 ```
 
-Start Ollama:
+<!-- Start Ollama:
 
 ```bash
 ollama serve
 ```
 
----
+--- -->
 
 ## ▶️ Running the Application
 
