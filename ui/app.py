@@ -10,7 +10,7 @@ st.set_page_config(
 
 st.title("🏥 Madhusudan's HL7 Validation Assistant")
 
-st.write("Upload an HL7 file or paste an HL7 message below.")
+st.write("Upload an  ADT HL7 file or paste an ADT HL7 message below.")
 
 # ----------------------------------------
 # Upload HL7 File
