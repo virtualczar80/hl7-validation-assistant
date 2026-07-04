@@ -3,6 +3,7 @@ from app.parser import HL7Parser
 from app.validator import validate_patient
 from app.ai import explain_error
 from app.batch_processor import split_messages
+from app.config import ENABLE_AI
 
 def process(hl7_text: str):
 
@@ -22,10 +23,17 @@ def process_message(hl7_text: str):
 
         errors = validate_patient(patient)
         enhanced_errors = []
+
         for error in errors:
             item = error.model_dump()
 
-            item["ai_explanation"] = explain_error(error)
+            if ENABLE_AI:
+                try:
+                    item["ai_explanation"] = explain_error(error)
+                except Exception:
+                    item["ai_explanation"] = "AI explanation unavailable."
+            else:
+                item["ai_explanation"] = "AI explanation disabled."
 
             enhanced_errors.append(item)
 
