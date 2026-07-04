@@ -1,0 +1,25 @@
+version: "3.9"
+
+services:
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: hl7-api
+    ports:
+      - "8000:8000"
+    environment:
+      OLLAMA_HOST: http://host.docker.internal:11434
+
+  ui:
+    build:
+      context: .
+      dockerfile: Dockerfile.streamlit
+    container_name: hl7-ui
+    ports:
+      - "8501:8501"
+    environment:
+      API_BASE_URL: http://api:8000
+    depends_on:
+      - api

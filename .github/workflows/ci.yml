@@ -1,0 +1,45 @@
+name: HL7 Validation Assistant CI
+
+on:
+  push:
+    branches:
+      - main
+
+  pull_request:
+    branches:
+      - main
+
+jobs:
+
+  build-test:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      # Checkout source code
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      # Install Python
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: "pip"
+
+      # Install dependencies
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      # Run Unit Tests
+      - name: Run Pytest
+        run: |
+          pytest -v
+
+      # Verify Docker builds successfully
+      - name: Build Docker Image
+        run: |
+          docker build -t hl7-validation-assistant .

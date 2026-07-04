@@ -1,6 +1,15 @@
-from ollama import chat
+import os
+from ollama import Client
 
-# This is AI model that explains HL7 v2 validation errors in simple English and provides suggested fixes.    
+# Read Ollama host from environment variable
+OLLAMA_HOST = os.getenv(
+    "OLLAMA_HOST",
+    "http://127.0.0.1:11434"
+)
+
+client = Client(host=OLLAMA_HOST)
+
+
 def explain_error(error):
 
     prompt = f"""
@@ -17,7 +26,7 @@ Also provide a suggested fix.
 Keep the response under 100 words.
 """
 
-    response = chat(
+    response = client.chat(
         model="llama3.2:3b",
         messages=[
             {
